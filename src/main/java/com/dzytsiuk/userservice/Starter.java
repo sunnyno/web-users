@@ -1,29 +1,29 @@
-package com.dzytsiuk.userservice.main;
+package com.dzytsiuk.userservice;
 
 import com.dzytsiuk.userservice.dao.jdbc.JdbcUserDao;
-import com.dzytsiuk.userservice.service.UsersService;
-import com.dzytsiuk.userservice.web.templater.servlets.DeleteUserServlet;
-import com.dzytsiuk.userservice.web.templater.servlets.EditUserServlet;
-import com.dzytsiuk.userservice.web.templater.servlets.UsersServlet;
-import com.dzytsiuk.userservice.web.templater.servlets.AddUserServlet;
+import com.dzytsiuk.userservice.service.UserService;
+import com.dzytsiuk.userservice.web.servlet.DeleteUserServlet;
+import com.dzytsiuk.userservice.web.servlet.EditUserServlet;
+import com.dzytsiuk.userservice.web.servlet.UsersServlet;
+import com.dzytsiuk.userservice.web.servlet.AddUserServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-public class Main {
+public class Starter {
     public static void main(String[] args) throws Exception {
         JdbcUserDao jdbcUserDao = new JdbcUserDao();
-        UsersService usersService = new UsersService();
-        usersService.setJdbcUserDao(jdbcUserDao);
+        UserService userService = new UserService();
+        userService.setUserDao(jdbcUserDao);
 
         UsersServlet usersServlet = new UsersServlet();
-        usersServlet.setUsersService(usersService);
+        usersServlet.setUserService(userService);
         AddUserServlet addUserServlet = new AddUserServlet();
-        addUserServlet.setUsersService(usersService);
+        addUserServlet.setUserService(userService);
         EditUserServlet editUserServlet = new EditUserServlet();
-        editUserServlet.setUsersService(usersService);
+        editUserServlet.setUserService(userService);
         DeleteUserServlet deleteUserServlet = new DeleteUserServlet();
-        deleteUserServlet.setUsersService(usersService);
+        deleteUserServlet.setUserService(userService);
 
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);

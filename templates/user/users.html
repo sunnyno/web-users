@@ -7,51 +7,71 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Users</title>
 </head>
 <body>
 
-<ul class="nav nav-pills">
-    <li class="nav-item">
-        <a href="/user/add" method="GET">Add User</a>
-    </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/users">
+        <img src="https://png.icons8.com/color/260/user-group-man-man.png" width="30px" height="30px"
+             class="d-inline-block align-top"> Users</a>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Age</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <#list users as user>
-    <tr>
-        <td>${user.firstName}</td>
-        <td> ${user.lastName}</td>
-        <td>${user.age}</td>
-        <td><a href="/user/edit?id=${user.id}" method="GET" type="hidden" name="id" value="${user.id}">Edit User</a></td>
-        <td><a href="/user/delete?id=${user.id}" method="GET" type="hidden" name="id" value="${user.id}">Delete User</a></td>
-    </tr>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    </#list>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/user/add">Add User <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
 
-    </tbody>
-</table>
+    </div>
+</nav>
 
+<div class="container">
+    <h2>User List</h2>
+</div>
+<div class="container">
+    <table class="table table-striped" width="auto">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 30%">First Name</th>
+            <th scope="col" style="width: 30%">Last Name</th>
+            <th scope="col" style="width: 10%">Age</th>
+            <th scope="col" style="width: 10%">Edit</th>
+            <th scope="col" style="width: 10%">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <#list users as user>
+        <tr>
+            <td>${user.firstName}</td>
+            <td scope="row">${user.lastName}</td>
+            <td>${user.age}</td>
+            <td>
+                <button class="btn  btn-light">
+                    <a href="/user/edit?id=${user.id}" type="hidden" name="id">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </button>
+            </td>
+            <td>
+                <form action="/user/delete" method="POST">
+                    <input type="hidden" name="id" value="${user.id}">
+                    <button class="btn btn-light">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </form>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            </td>
+        </tr>
+        </#list>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

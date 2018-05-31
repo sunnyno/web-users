@@ -1,11 +1,10 @@
 package com.dzytsiuk.userservice.dao.jdbc;
 
-import com.dzytsiuk.userservice.entities.User;
+import com.dzytsiuk.userservice.entity.User;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
 
 
 public class UserQueryFormerTest {

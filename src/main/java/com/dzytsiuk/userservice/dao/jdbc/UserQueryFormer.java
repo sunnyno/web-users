@@ -1,7 +1,7 @@
 package com.dzytsiuk.userservice.dao.jdbc;
 
-import com.dzytsiuk.userservice.dao.annotations.Table;
-import com.dzytsiuk.userservice.dao.annotations.Column;
+import com.dzytsiuk.userservice.dao.jdbc.annotation.Table;
+import com.dzytsiuk.userservice.dao.jdbc.annotation.Column;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class UserQueryFormer {
         return query.toString();
     }
 
-    public String deleteQuery(Object obj){
+    public String deleteQuery(Object obj) {
         StringBuilder query = new StringBuilder("DELETE FROM ");
         String tableName = getTableName(obj.getClass());
         query.append(tableName).append(" WHERE ");

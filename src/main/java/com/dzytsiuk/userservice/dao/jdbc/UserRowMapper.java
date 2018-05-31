@@ -1,6 +1,6 @@
 package com.dzytsiuk.userservice.dao.jdbc;
 
-import com.dzytsiuk.userservice.entities.User;
+import com.dzytsiuk.userservice.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

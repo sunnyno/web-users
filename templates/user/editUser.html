@@ -11,33 +11,45 @@
     <title>Edit User</title>
 </head>
 <body>
-<a type="text" name="id" type="hidden"/>
 
-<form action="/user/edit" method="POST">
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Enter first name" name="firstName">
-    </div>
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName">
-    </div>
-    <div class="form-group">
-        <label for="age">Age</label>
-        <input type="text" class="form-control" id="age" placeholder="Enter age" name="age">
-    </div>
-    <input type="hidden" name="id" value="${id}">
-    <button type="submit" class="btn btn-primary">Edit</button>
-</form>
+<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/users">
+        <img src="https://png.icons8.com/color/260/user-group-man-man.png" width="30px" height="30px"
+             class="d-inline-block align-top"> Users</a>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/user/add">Add User <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+    <form action="/user/edit" method="POST">
+        <div class="form-group col-6">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" name="firstName">
+        </div>
+        <div class="form-group col-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName">
+        </div>
+        <div class="form-group col-6">
+            <label for="age">Age</label>
+            <input type="text" class="form-control" id="age" placeholder="Enter age" name="age">
+        </div>
+        <input type="hidden" name="id" value="${id}">
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a href="/users" name="cancel" class="btn btn-default">Cancel</a>
+    </form>
+</div>
 </body>
 </html>

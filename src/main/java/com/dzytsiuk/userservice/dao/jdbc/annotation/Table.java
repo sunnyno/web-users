@@ -1,10 +1,9 @@
-package com.dzytsiuk.userservice.dao.annotations;
+package com.dzytsiuk.userservice.dao.jdbc.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Column {
+public @interface Table {
     String name();
-    boolean pk() default false;
 }

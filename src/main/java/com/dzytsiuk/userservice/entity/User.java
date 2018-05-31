@@ -1,7 +1,7 @@
-package com.dzytsiuk.userservice.entities;
+package com.dzytsiuk.userservice.entity;
 
-import com.dzytsiuk.userservice.dao.annotations.Table;
-import com.dzytsiuk.userservice.dao.annotations.Column;
+import com.dzytsiuk.userservice.dao.jdbc.annotation.Table;
+import com.dzytsiuk.userservice.dao.jdbc.annotation.Column;
 
 @Table(name = "users")
 public class User {
@@ -45,16 +45,6 @@ public class User {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -70,5 +60,16 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
 
 }
