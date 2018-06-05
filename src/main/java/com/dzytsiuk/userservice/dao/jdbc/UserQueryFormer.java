@@ -20,6 +20,12 @@ public class UserQueryFormer {
         return query.toString();
     }
 
+    public String getById(long id, Class clazz){
+        String selectQuery = getAllQuery(clazz);
+        return selectQuery.substring(0, selectQuery.length() - 1)
+                + " WHERE " + getIdName(clazz) + " = " + id + ";";
+    }
+
 
     public String insertQuery(Object obj) {
         StringBuilder query = new StringBuilder("INSERT INTO ");

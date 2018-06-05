@@ -13,6 +13,10 @@ public class UserService {
         return userDao.getAll();
     }
 
+    public User getById(long id) {
+        return userDao.getById(id);
+    }
+
     public void insert(User user) {
         userDao.insert(user);
 

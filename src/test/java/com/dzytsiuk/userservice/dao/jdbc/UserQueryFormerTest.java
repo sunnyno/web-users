@@ -39,8 +39,15 @@ public class UserQueryFormerTest {
     }
 
     @Test
-    public void deleteQueryTest(){
+    public void deleteQueryTest() {
         String expected = "DELETE FROM users WHERE id = 1;";
         assertEquals(expected, userQueryFormer.deleteQuery(user));
     }
+
+    @Test
+    public void getByIdQueryTest() {
+        String expected = "SELECT id, first_name, last_name, age FROM users WHERE id = 1;";
+        assertEquals(expected, userQueryFormer.getById(1, User.class));
+    }
+
 }

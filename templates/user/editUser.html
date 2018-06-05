@@ -36,17 +36,17 @@
     <form action="/user/edit" method="POST">
         <div class="form-group col-6">
             <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" name="firstName">
+            <input type="text" class="form-control" id="firstName" value="${user.firstName}" name="firstName">
         </div>
         <div class="form-group col-6">
             <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName">
+            <input type="text" class="form-control" id="lastName" value="${user.lastName}" name="lastName">
         </div>
         <div class="form-group col-6">
             <label for="age">Age</label>
-            <input type="text" class="form-control" id="age" placeholder="Enter age" name="age">
+            <input type="text" class="form-control" id="age" value="${user.age}" name="age">
         </div>
-        <input type="hidden" name="id" value="${id}">
+        <input type="hidden" name="id" value=${user.id}>
         <button type="submit" class="btn btn-primary">Edit</button>
         <a href="/users" name="cancel" class="btn btn-default">Cancel</a>
     </form>
